@@ -14,7 +14,10 @@ import {
   Scale,
   ChevronLeft,
   ChevronRight,
-  MapPin
+  MapPin,
+  Linkedin,
+  Twitter,
+  Youtube
 } from "lucide-react";
 import Image from 'next/image';
 
@@ -73,7 +76,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#edf1f7]/50 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
@@ -135,13 +138,13 @@ export default function Home() {
             <Card className="bg-secondary text-white text-left p-6 hover:bg-primary/80 transition-colors">
               <CardContent className="p-0 flex flex-col items-start justify-between h-full ">
                 <div className="text-5xl font-semibold">295</div>
-                <div className="text-white/70 w-2/3 font-light">communities actively engaged</div>
+                <div className="text-white/70 w-1/2 font-light">communities actively engaged</div>
               </CardContent>
             </Card>
             <Card className="bg-secondary text-white text-left p-6 hover:bg-primary/80 transition-colors">
               <CardContent className="p-0 flex flex-col items-start justify-between h-full ">
                 <div className="text-5xl font-semibold">295</div>
-                <div className="text-white/70 w-2/3 font-light">research publications in peer-reviewed journals</div>
+                <div className="text-white/70 w-7/12  font-light">research publications in peer-reviewed journals</div>
               </CardContent>
             </Card>
           </div>
@@ -153,7 +156,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
 
           <div className='flex flex-row justify-between'>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 max-w-xl">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-6 max-w-xl">
               Based near Mudumalai Tiger Reserve, serving the biodiversity corridors of South India
             </h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-md text-right">
@@ -261,7 +264,7 @@ export default function Home() {
                     className="absolute inset-0 bg-white rounded-xl p-5 overflow-hidden flex flex-col justify-between border"
                     style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
                   >
-                    <h3 className="text-md font-semibold mb-2">{card.title}</h3>
+                    <h3 className="text-md font-semibold mb-2 text-secondary">{card.title}</h3>
                     <p className="text-sm leading-snug">{card.desc}</p>
                   </div>
                 </div>
@@ -273,21 +276,23 @@ export default function Home() {
       </section >
 
       {/* Second Hero Section */}
-      < section className="relative py-24" >
+      <section className="relative h-[600px] md:h-[600px] sm:min-h-[400px] py-16 sm:py-20">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat "
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://i.ibb.co/8gSZxmDq/middle-bg.png')`
+            backgroundImage: `url('https://i.ibb.co/8gSZxmDq/middle-bg.png')`,
           }}
         >
-          <div className="absolute inset-0 bg-black/70 "></div>
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-3xl mb-6 leading-tight">
-            Whether you're a government agency, corporation, researcher, or concerned citizen, there's a role for you in India's conservation story.
+        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4 flex h-full items-center justify-center">
+          <h2 className="text-2xl sm:text-3xl leading-tight">
+            Whether you're a government agency, corporation, researcher, or concerned citizen,
+            <span className='font-bold'>there's a role for you in India's conservation story.</span>
           </h2>
         </div>
-      </section >
+      </section>
+
 
       {/* Get Involved Section */}
       < section id="impact" className="py-16 bg-white" >
@@ -300,61 +305,70 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {items.map((title, i) => (
-              <div key={i} className="text-left flex flex-col items-start justify-start gap-2">
+              <div
+                key={i}
+                className={`text-left flex flex-col items-start justify-start gap-2 ${i !== items.length - 1 ? 'border-r' : ''}`}
+              >
                 <div className="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-xl font-bold">
                   {i + 1}
                 </div>
                 <div className="w-2/3">
-                  <h3 className="text-lg  text-secondary">{title}</h3>
+                  <h3 className="text-lg text-secondary">{title}</h3>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section >
 
-      {/* Footer */}
-      < footer className="bg-secondary text-white py-16" >
+      <footer className="bg-secondary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <Image src="/images/logo.png" alt="Eco Voice Foundation Logo" width={200} height={36} className="h-8 w-8" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start justify-between">
+
+            {/* Left: Logo, Tagline, Button */}
+            <div className="flex flex-col items-start justify-between h-full">
+              <div>
+                <h2 className="text-3xl font-bold">Eco Voice Foundation</h2>
+                <p className="text-lg text-gray-200">Voice For Species</p>
               </div>
-              <p className="text-gray-300 mb-4">Voice For Species</p>
-              <p className="text-gray-400 text-sm mb-6">
-                Dedicated to protecting threatened species and habitats through research, restoration, and community engagement.
-              </p>
-              <Button className="bg-transparent hover:bg-primary/80 rounded-full ">
-                Donate now
-              </Button>
+              <div>
+                <Button className="bg-white text-secondary rounded-full px-6 py-2 hover:bg-gray-100">
+                  Donate now
+                </Button>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Sitemap</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Impact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Partner program</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
+            {/* Center: Empty for spacing */}
+            <div className="hidden lg:block" />
+
+            {/* Right: Sitemap + Social */}
+            <div className="flex flex-col lg:flex-row justify-between items-end w-full gap-12">
+              <div>
+                <p className="font-normal mb-2 text-gray-300">Follow us :</p>
+                <div className="flex items-center space-x-4">
+                  <a href="#" className="bg-white text-secondary rounded-full p-2"><Linkedin className="h-5 w-5" /></a>
+                  <a href="#" className="bg-white text-secondary rounded-full p-2"><Twitter className="h-5 w-5" /></a>
+                  <a href="#" className="bg-white text-secondary rounded-full p-2"><Youtube className="h-5 w-5" /></a>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4">Sitemap</h4>
+                <ul className="space-y-2 text-gray-300 text-sm">
+                  <li><a href="#" className="hover:text-white">About us</a></li>
+                  <li><a href="#" className="hover:text-white">Partner program</a></li>
+                  <li><a href="#" className="hover:text-white">Careers</a></li>
+                  <li><a href="#" className="hover:text-white">Legal</a></li>
+                  <li><a href="#" className="hover:text-white">Privacy policy</a></li>
+                </ul>
+              </div>
+
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Legal</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy policy</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Eco Voice Foundation. All rights reserved.</p>
           </div>
         </div>
-      </footer >
+      </footer>
+
     </div >
   );
 }
