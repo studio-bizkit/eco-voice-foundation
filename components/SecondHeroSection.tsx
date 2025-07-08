@@ -15,7 +15,7 @@ export default function SecondHeroSection() {
       <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4 flex h-full items-center justify-center">
         <h2 className="text-2xl sm:text-3xl leading-tight">
           Whether you&apos;re a government agency, corporation, researcher, or concerned citizen,
-          <span className='font-bold'>there&apos;s a role for you in India&apos;s conservation story.</span>
+          <span className='font-bold'> there&apos;s a role for you in India&apos;s conservation story.</span>
         </h2>
       </div>
     </section>
