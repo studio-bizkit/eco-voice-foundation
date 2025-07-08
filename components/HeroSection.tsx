@@ -1,17 +1,21 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://i.ibb.co/BVVS3xNg/bg.png')`
-        }}
+      <Image
+        src="/images/bg.png"
+        alt="Background"
+        fill
+        className="absolute inset-0 object-cover object-center z-0"
+        priority
       />
+
       <div className="relative z-10 text-center text-white max-w-5xl px-4 flex flex-col gap-10 items-center -mt-44">
         <h1 className="text-5xl md:text-5xl leading-tight text-primary font-medium">
-          Together, we are dedicated to protecting threatened species and habitats
+          Together, we are dedicated to protecting threatened species and
+          habitats
         </h1>
         <Button
           size="lg"
@@ -22,4 +26,4 @@ export default function HeroSection() {
       </div>
     </section>
   );
-} 
+}

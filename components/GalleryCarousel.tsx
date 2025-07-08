@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 export default function GalleryCarousel() {
   const galleryImages = [
@@ -49,10 +50,14 @@ export default function GalleryCarousel() {
               key={index}
               className="min-w-[66.66%] pr-4"
             >
-              <img
+              <Image
                 src={src}
                 alt={`Slide ${index + 1}`}
                 className="rounded-xl w-full h-full object-cover max-h-[500px]"
+                width={800}
+                height={500}
+                priority={index === 0}
+                unoptimized={src.startsWith('http')}
               />
             </div>
           ))}

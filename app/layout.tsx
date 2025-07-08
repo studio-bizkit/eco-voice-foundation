@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Eco Voice Foundation',
     images: [
       {
-        url: '/images/impact.png', // Prefer a large, relevant image
+        url: 'https://i.ibb.co/XZyZ616G/eco.jpg',
         width: 1200,
         height: 630,
         alt: 'Eco Voice Foundation - Conservation in Action',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Eco Voice Foundation | Wildlife Conservation & Habitat Restoration',
     description: 'Eco Voice Foundation is dedicated to protecting threatened species and habitats in South India through research, restoration, community engagement, and policy advisory.',
-    images: ['/images/impact.png'],
+    images: ['https://i.ibb.co/XZyZ616G/eco.jpg'],
     site: '@EcoVoiceOrg', // Change to your Twitter handle if available
   },
   alternates: {
